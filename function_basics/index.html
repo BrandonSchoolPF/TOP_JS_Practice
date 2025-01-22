@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add7(value) {
+            console.log(value + 7);
+        }
+
+        function multiply(value1, value2) {
+            console.log(`First Value: ${value1} multiplied by Second Value: ${value2} = ${value1 * value2}`);
+        }
+
+        function capitalize(string) {
+            const new_string = string.toLowerCase();
+            console.log(new_string.charAt(0).toUpperCase()+String(new_string).slice(1));
+        }
+
+        function lastLetter(string) {
+            console.log(`Last letter of '${string}' is: ${string.slice(-1)}`);
+        }
+        lastLetter('abcd')
+        capitalize('BoTh')
+        multiply(4,5);
+        add7(4);
+    </script>
+</body>
+</html>
