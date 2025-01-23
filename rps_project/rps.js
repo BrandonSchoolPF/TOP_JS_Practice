@@ -15,18 +15,44 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 function getHumanChoice() {
     user_input = prompt('Choose Rock, Paper, or Scissors');
-    fomatted_prompt = user_input.charAt(0).toUpperCase()+String(user_input).slice(1);
-    return formatted_prompt;
+    formatted_prompt = user_input.charAt(0).toUpperCase()+String(user_input).slice(1);
+    if (formatted_prompt === 'Rock' || formatted_prompt === 'Paper' || formatted_prompt === 'Scissors')  {
+        return formatted_prompt;
+    } else {
+        console.log(`Please choose either rock, paper, or scissors, you wrote '${formatted_prompt}'`);
+    }
 }
 
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
 
-// function playRound(humanChoice, computerChoice) {
-//     switch(true) {
-//         case humanChoice =
-//     }
-// }
+function playRound(humanSelection, computerSelection) {
+    console.log(humanSelection);
+    console.log(computerSelection);
+    let human_counter = 0;
+    let computer_counter = 0;
+    
+    if (humanSelection === computerChoice) {
+        return "It's a tie!";
+      } 
+    
+      if (
+        (humanSelection === "rock" && computerSelection === "scissors") ||
+        (humanSelection === "scissors" && computerSelection === "paper") ||
+        (humanSelection === "paper" && computerSelection === "rock")
+      ) {
+        human_counter = human_counter + 1;
+        console.log('Human Wins!');
+      } 
+      computer_counter = computer_counter + 1;
+      console.log('Computer Wins!');
+    return (human_counter, computer_counter);
+    }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection, computerSelection));
