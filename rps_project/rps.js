@@ -56,12 +56,11 @@ let round = 0;
 while (!condition) {
     let Human = 0;
     let Computer = 0;
-    let iterator = 0;
-    let round = iterator + 1; 
     [HumanCounter, ComputerCounter] = playRound(round, getHumanChoice(), getComputerChoice())
-    Human += HumanCounter;
-    Computer += ComputerCounter;
-    console.log(`Human Score: ${HumanCounter} | Computer Score: ${ComputerCounter}`)
+    console.log([HumanCounter, ComputerCounter])
+    Human = Human + HumanCounter;
+    Computer = Computer + ComputerCounter;
+    console.log(`Human Score: ${Human} | Computer Score: ${Computer}`)
     if (Human === 5) {
         console.log('Human Wins!')
         condition = true;
