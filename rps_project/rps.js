@@ -24,38 +24,49 @@ function getHumanChoice() {
         return formatted_prompt;
     } else {
         console.log(`Please choose either rock, paper, or scissors, you wrote '${formatted_prompt}'`);
+        getHumanChoice();
     }
 }
 
 // console.log(getHumanChoice());
 
-function playRound(humanSelection, computerSelection) {
-    console.log(humanSelection);
-    console.log(computerSelection);
+function playRound(round, humanSelection, computerSelection) {
     let human_counter = 0;
     let computer_counter = 0;
-    
+    console.log(`Round ${round}`)
+    console.log(`Computer Chose: ${computerSelection}`)
     if (humanSelection === computerSelection) {
-        return "It's a tie!";
-      } 
-    
-      if (
+        console.log("It's a tie!");
+      } else if (
         (humanSelection === "rock" && computerSelection === "scissors") ||
         (humanSelection === "scissors" && computerSelection === "paper") ||
         (humanSelection === "paper" && computerSelection === "rock")
       ) {
-        human_counter = human_counter + 1;
-        console.log('Human Wins!');
-      } 
-      computer_counter = computer_counter + 1;
-      console.log('Computer Wins!');
+        human_counter = 1;
+        console.log(`Human Wins round: ${round}!`);
+      } else {
+        computer_counter = 1;
+        console.log(`Computer Wins round: ${round}!`);
+      }
     return [human_counter, computer_counter];
     }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-[HumanCounter, ComputerCounter] = playRound(humanSelection, computerSelection)
-
-console.log(`Human Score ${HumanCounter}`);
-console.log(`Computer Score ${ComputerCounter}`);
+let condition = false;
+let round = 0;
+while (!condition) {
+    let Human = 0;
+    let Computer = 0;
+    let iterator = 0;
+    let round = iterator + 1; 
+    [HumanCounter, ComputerCounter] = playRound(round, getHumanChoice(), getComputerChoice())
+    Human += HumanCounter;
+    Computer += ComputerCounter;
+    console.log(`Human Score: ${HumanCounter} | Computer Score: ${ComputerCounter}`)
+    if (Human === 5) {
+        console.log('Human Wins!')
+        condition = true;
+    } else if (Computer === 5) {
+        console.log('Computer Wins!')
+        condition = true;
+    }
+}
