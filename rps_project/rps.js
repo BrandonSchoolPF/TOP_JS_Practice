@@ -35,7 +35,7 @@ function playRound(humanSelection, computerSelection) {
     let human_counter = 0;
     let computer_counter = 0;
     
-    if (humanSelection === computerChoice) {
+    if (humanSelection === computerSelection) {
         return "It's a tie!";
       } 
     
@@ -49,10 +49,13 @@ function playRound(humanSelection, computerSelection) {
       } 
       computer_counter = computer_counter + 1;
       console.log('Computer Wins!');
-    return (human_counter, computer_counter);
+    return [human_counter, computer_counter];
     }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-console.log(playRound(humanSelection, computerSelection));
+[HumanCounter, ComputerCounter] = playRound(humanSelection, computerSelection)
+
+console.log(`Human Score ${HumanCounter}`);
+console.log(`Computer Score ${ComputerCounter}`);
